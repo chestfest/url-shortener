@@ -4,12 +4,14 @@
   "description": "URL shortener Microservice using Node.js and Express.js",
   "main": "./public/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./public/main.js"
   },
   "author": "valmassoi",
   "license": "MIT",
   "dependencies": {
     "express": "^4.13.4",
+    "mongodb": "^2.1.16",
     "shortid": "^2.2.6"
   }
 }

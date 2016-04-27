@@ -8,6 +8,7 @@ vendor
 js/lib
 .DS_Store
 .sass-cache
+notes.txt
 
 # Ignore Node & Bower
 ###################

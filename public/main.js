@@ -8,7 +8,18 @@ const mongo = require('mongodb').MongoClient
 
 const app = express()
 
-const dbUrl = 'mongodb://localhost:27017/data' //change PORT
+const dbUser = process.env.DB_USER
+const dbPass = process.env.DB_PASSWORD
+const dbAccnt = process.env.DB_ACCOUNT
+
+if (process.env.NODE_ENV == 'production') {
+  console.log("production");
+  const dbUrl = 'mongodb://localhost:27017/data'
+}
+else{
+  console.log("development");
+  // const dbUrl = 'mongodb://localhost:27017/data'
+}
 
 function checkUrl(url){
   let regexp = /^(https?):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;

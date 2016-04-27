@@ -8,11 +8,6 @@ const mongo = require('mongodb').MongoClient
 
 const app = express()
 
-const dbUser = process.env.DB_USER
-const dbPass = process.env.DB_PASSWORD
-const dbAccnt = process.env.DB_ACCOUNT
-
-console.log(process.env.NODE_ENV);
 const dbUrl = process.env.MONGODB_URI || 'mongodb://localhost:27017/data'
 
 function checkUrl(url){
@@ -23,7 +18,7 @@ function checkUrl(url){
 function shorten(origUrl, callback){
 
   //create id
-  let id = shortid.generate()//TODO  //testing with xxx
+  let id = shortid.generate() //TODO while loop id is already used or if $eq in db
   console.log(id)
 
   let item = {
@@ -34,7 +29,7 @@ function shorten(origUrl, callback){
   mongo.connect(dbUrl, (err, db) => { //mongo db origUrl and id   CHECK IF USED
     if (err) throw err
     let urls = db.collection('urls')
-    urls.find({ //TODO CHECK BOTH ID AND url
+    urls.find({
       "original_url": {
         $eq: origUrl
       }
@@ -42,7 +37,7 @@ function shorten(origUrl, callback){
       if (err) throw err
       if (exists.length != 0){
         console.log("orig url alread exists, its id was: "+exists[0].id)
-        callback(exists[0].id)
+        callback(exists[0].id)//give already created id
         db.close()
       }
       else{
@@ -53,7 +48,6 @@ function shorten(origUrl, callback){
           db.close()
         })
       }
-
     })
   })
 }
@@ -120,9 +114,7 @@ app.get("/new/*", (req, res) => {
     let json = JSON.stringify({"error" : "Bad URL format, make sure it contains http:// or https://"})
     res.end(json)
   }
-
 });
-
 
 const port = process.env.PORT || 8080;
 http.createServer(app).listen(port)

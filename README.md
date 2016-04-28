@@ -5,7 +5,7 @@ URL shortener Microservice using `Node.js`, `Express.js`, and `MongoDB`
 Hosted at https://minime.herokuapp.com
 
 ## CodePen Integrated Front-End Demo
-minime.herokuapp.com/BJVLpgJZ
+https://minime.herokuapp.com/BJVLpgJZ
 
 ## Built for FreeCodeCamp
 https://www.freecodecamp.com/challenges/url-shortener-microservice

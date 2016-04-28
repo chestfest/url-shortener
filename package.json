@@ -2,10 +2,10 @@
   "name": "url-shortener",
   "version": "1.0.0",
   "description": "URL shortener Microservice using Node.js and Express.js",
-  "main": "./public/main.js",
+  "main": "./app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./public/main.js"
+    "start": "node ./app.js"
   },
   "author": "valmassoi",
   "license": "MIT",

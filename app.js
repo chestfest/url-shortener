@@ -4,9 +4,11 @@ const path = require('path')
 const express = require('express')
 const http = require('http')
 const shortid = require('shortid')
+const favicon = require('serve-favicon')
 const mongo = require('mongodb').MongoClient
 
 const app = express()
+app.use(favicon(__dirname + '/favicon.ico'))
 
 const dbUrl = process.env.MONGODB_URI || 'mongodb://localhost:27017/data'
 

@@ -1,11 +1,11 @@
 {
   "name": "url-shortener",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "URL shortener Microservice using Node.js and Express.js",
-  "main": "./app.js",
+  "main": "./server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./app.js"
+    "start": "node ./server.js"
   },
   "author": "valmassoi",
   "license": "MIT",
@@ -14,6 +14,13 @@
     "mongodb": "^2.1.16",
     "serve-favicon": "^2.3.0",
     "shortid": "^2.2.6"
+  },
+  "devDependencies": {
+    "eslint": "^2.13.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.10.0",
+    "eslint-plugin-jsx-a11y": "^1.5.3",
+    "eslint-plugin-react": "^5.2.2"
   },
   "engines": {
     "node": "4.4.1"
